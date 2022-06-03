@@ -1,0 +1,113 @@
+.lgx-speacial {
+  background: url('../img/speacial-bg.jpg') top center no-repeat;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  .lgx-inner {
+    //padding: 15rem 0;
+  }
+}
+
+.lgx-owlspeacial {
+  //margin-left: -8px;
+  //margin-right: -8px;
+}
+.lgx-single-speacial {
+  //margin: 0 8px;
+  position: relative;
+  figure {
+    overflow: hidden;
+    img {
+      //border-radius: 50%;
+      -webkit-transition: 0.4s ease;
+      transition: 0.4s ease;
+    }
+    figcaption {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      .speacial-price {
+        text-align: center;
+        background: @black-color;
+        border-radius: 50%;
+        height: 120px;
+        width: 120px;
+        font-family: @lgx-heading-font;
+        .font-noline(4.2);
+        font-weight: 900;
+        line-height: 100px;
+        color: @brand-color;
+        span {
+          font-family: @lgx-base-font;
+          .font-noline(2.6);
+          font-weight: 300;
+          color: @white-color;
+        }
+      }
+    }
+  }
+  .speacial-info {
+    padding: 1.5rem 1.5rem;
+    text-align: center;
+    -webkit-transition: 0.4s ease;
+    transition: 0.4s ease;
+    .title {
+      color: @white-color;
+      margin: 0;
+      line-height: 3.5rem;
+      a {
+        color: inherit;
+      }
+    }
+  }
+  &:hover {
+    figure {
+      img {
+        -ms-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -webkit-transform: scale(1.2);
+        -o-transform: scale(1.2);
+        transform: scale(1.2);
+      }
+    }
+    .speacial-info {
+      background: @black-color;
+      //padding: .1rem 1.5rem;
+      .title {
+        color: @white-color;
+        //line-height: 3.5rem;
+        a {
+          color: inherit;
+        }
+        &:hover {
+          color: @brand-color;
+          a {
+            color: inherit;
+          }
+        }
+      }
+    }
+  }
+}
+
+.lgx-owlspeacial-circle {
+  margin-left: -8px;
+  margin-right: -8px;
+  .lgx-single-speacial {
+    margin: 0 8px;
+    figure {
+      img {
+        border-radius: 50%;
+      }
+    }
+    &:hover {
+      figure {
+        img {
+          border-radius: 0;
+        }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Sloth.Entities.Concrete.Corparate>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="page-title">
+    <h2><span class="fa fa-arrow-circle-o-left"></span> Kurumsal Yönetimi</h2>
+</div>
+
+<!-- START DEFAULT TABLE EXPORT -->
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title"><strong>Kurumsal</strong> Yönetimi</h3>
+        <div class="pull-right">
+            <button class="btn btn-success" onclick="location.href='@Url.Action("Create", "Corporates")'"><i class="fa fa-plus"></i> Yeni Kurumsal Sayfa Ekle</button>
+
+        </div>
+    </div>
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive">
+
+            <table class="table datatable">
+                <thead>
+                    <tr>
+                        <th class="text-center" width="20">#</th>
+                        <th width="60">KURUMSAL SAYFA ADI</th>
+                        <th class="text-center" width="120">İŞLEMLER</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr id="trow_1">
+                            <td class="text-center">@item.Id</td>
+                            <td class="text-left">@Html.DisplayFor(modelItem => item.Title) > @item.TextTitle</td>
+                            <td class="text-center">
+                                <button class="btn btn-primary btn-rounded btn-condensed btn-sm" data-toggle="tooltip" data-placement="top" title="Düzenle" onclick="location.href='@Url.Action("Edit", "Corporates", new {id = item.Id })'"><span class="fa fa-pencil"></span></button>
+                                <button class="btn btn-danger btn-rounded btn-condensed btn-sm" data-toggle="tooltip" data-placement="top" title="Sil" onclick="location.href='@Url.Action("Delete", "Corporates", new {id = item.Id })'"><span class="fa fa-trash"></span></button>
+                            </td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>

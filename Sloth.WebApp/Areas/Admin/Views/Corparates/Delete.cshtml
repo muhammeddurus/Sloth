@@ -1,0 +1,63 @@
+﻿@model Sloth.Entities.Concrete.Corparate
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+
+    <!-- PAGE CONTENT WRAPPER -->
+    <div class="page-title">
+        <h2><span class="fa fa-arrow-circle-o-left"></span> Kurumsal Sayfası Sil</h2>
+    </div>
+
+    <form class="form-horizontal">
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><strong>Kurumsal Sayfası</strong> Sil ?</h3>
+                <ul class="panel-controls">
+                    <li><a href="~/Corporates"><span style="color:#ff6a00" class="fa fa-arrow-left"></span></a></li>
+                </ul>
+            </div>
+            <div class="panel-body">
+                <p>
+                    Bu Sayfayı Silmek İstediğinizden Emin misiniz ?
+                </p>
+            </div>
+
+            <div class="panel-body">
+
+                <div class="row">
+
+                    <div class="col-md-6">
+
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label"> Kurumsal Sayfa Adı</label>
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    @Html.DisplayFor(model => model.TextTitle)
+                                </div>
+                                <br />
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <br /> <br />
+            <div class="panel-footer">
+                <button type="submit" class="btn btn-danger pull-right">Sil</button>
+            </div>
+        </div>
+    </form>
+
+    <!-- END PAGE CONTENT WRAPPER -->
+}
+

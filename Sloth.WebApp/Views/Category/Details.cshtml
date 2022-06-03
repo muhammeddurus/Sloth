@@ -1,0 +1,62 @@
+﻿@model Sloth.Entities.Concrete.Category
+
+@{
+    Sloth.Entities.SlothContext db = new Sloth.Entities.SlothContext();
+
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+
+
+<section>
+    <div class="lgx-banner lgx-banner-inner" style="background-image: url('/Uploads/banner61.jpg')">
+        <div class="lgx-page-inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="lgx-heading-area">
+                            <div class="lgx-heading lgx-heading-white">
+                                    <h2 class="heading-title">@Model.Title</h2>         
+                            </div>
+                            <ul class="breadcrumb">
+                                <li><a href="index.html"><i class="fa fa-home" aria-hidden="true"></i>Home</a></li>
+                                <li class="active">Specials</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div><!--//.ROW-->
+            </div><!-- //.CONTAINER -->
+        </div><!-- //.INNER -->
+    </div>
+</section> <!--//.Banner Inner-->
+
+<main>
+    <div class="lgx-page-wrapper">
+        <div class="container">
+            <div class="lgx-col">
+                @foreach (var item in db.Foods.Where(x => x.CategoryId == Model.Id))
+                {
+                    <p>@item.Title</p>
+                    <div class="lgx-single-speacial lgx-card-single">
+                        <figure>
+                            <a href="~/Foods/Details/@item.Id"><img src="~/Uploads/@item.Image.ToString()" alt="Offers" /></a>
+                            <figcaption>
+                                <div class="speacial-price">
+                                    <span>@item.Price</span> ₺
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <div class="speacial-info">
+                            <h3 class="title"><a href="~/Foods/Details/@item.Id">@item.Title.ToString()</a></h3>
+                        </div>
+                    </div>
+
+                }
+
+            </div>
+        </div><!-- //.CONTAINER -->
+    </div>
+</main>
+

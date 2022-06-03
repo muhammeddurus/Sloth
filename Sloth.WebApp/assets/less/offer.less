@@ -1,0 +1,113 @@
+
+.lgx-offer-section {
+
+}
+.lgx-offer {
+  .lgx-inner {
+    padding-top: 0;
+  }
+}
+
+.lgx-offer-center {
+  .lgx-inner {
+    padding: 10.2rem 0;
+  }
+  .lgx-single-offer .offer-info {
+    background: @body-bg-deep;
+  }
+}
+
+.lgx-single-offer {
+  position: relative;
+  figure {
+    max-width: 1140px;
+    margin: 0 auto;
+    overflow: hidden;
+    img {
+      max-width: 750px;
+      -webkit-transition: 0.4s ease;
+      transition: 0.4s ease;
+    }
+  }
+  .offer-info {
+    width: 50%;
+    background: @white-color;
+    color: @black-color;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 4.2rem 4.2rem;
+    min-height: 420px;
+    .title {
+      color: @brand-color;
+      font-family: @lgx-base-font;
+      .font-size(26);
+      font-weight: 300;
+      line-height: 3.3rem;
+      margin-bottom: 2.6rem;
+      display: block;
+      text-transform: uppercase;
+      a {
+        color: inherit;
+      }
+      span {
+        display: block;
+        font-family: @lgx-heading-font;
+        .font-size(42);
+        font-weight: 900;
+        color: @black-color;
+        text-transform: none;
+      }
+    }
+    .offer-list {
+      margin-bottom: 2.6rem;
+      li {
+        font-family: @lgx-heading-font;
+        color: @black-color;
+        font-weight: 300;
+        opacity: .7;
+        i {
+          color: @brand-color;
+          opacity: .4;
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+  &:hover {
+    figure {
+      img {
+        -ms-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -webkit-transform: scale(1.2);
+        -o-transform: scale(1.2);
+        transform: scale(1.2);
+      }
+    }
+  }
+}
+
+
+.lgx-single-offer-black {
+  .offer-info {
+    background: @black-color;
+    color: @white-color;
+    .title {
+      color: @brand-color;
+      a {
+        color: inherit;
+      }
+      span {
+        color: @white-color;
+      }
+    }
+    .offer-list {
+      li {
+        color: @white-color;
+        i {
+          color: @brand-color;
+        }
+      }
+    }
+  }
+}

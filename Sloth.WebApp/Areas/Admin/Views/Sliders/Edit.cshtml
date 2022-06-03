@@ -1,0 +1,102 @@
+﻿@model Sloth.Entities.Concrete.Slider
+
+@{
+    Sloth.Entities.SlothContext db = new Sloth.Entities.SlothContext();
+
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayout.cshtml";
+}
+
+@using (Html.BeginForm("Edit", "Sliders", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <!-- PAGE CONTENT WRAPPER -->
+    <div class="page-title">
+        <h2><span class="fa fa-arrow-circle-o-left"></span> Slider Düzenle</h2>
+    </div>
+
+    <form class="form-horizontal">
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.Image)
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><strong>Slider</strong> Düzenle</h3>
+                <ul class="panel-controls">
+                    <li><a href="~/Admin/Sliders"><span style="color:#ff6a00" class="fa fa-arrow-left"></span></a></li>
+                </ul>
+            </div>
+            <div class="panel-body">
+                <p>
+                    Bir "Slider" düzenlemek için aşağıdaki bilgileri eksiksiz doldurunuz. <br /> <b style="color:#ff0000">*</b> ile işaretli alanların doldurulması zorunludur.
+                </p>
+            </div>
+
+            <div class="panel-body">
+
+                <div class="row">
+
+                    <div class="col-md-12">
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label"> Slider Büyük Başlık</label>
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @autocomplete = "off", @placeholder = "Başlık", @class = "form-control", } })
+                                </div>
+                                <br />
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label"> Slider Küçük Başlık</label>
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                    @Html.EditorFor(model => model.SmallTitle, new { htmlAttributes = new { @autocomplete = "off", @placeholder = "Başlık", @class = "form-control", } })
+                                </div>
+                                <br />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label"> Slider Text</label>
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @autocomplete = "off", @placeholder = "Başlık", @class = "form-control", } })
+                                </div>
+                                <br />
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="col-md-6 gallery" id="links">
+                                <a href="~/assets/Uploads/Sliders/@Model.Image" class="gallery-item" data-fancybox="gallery"><img class="gallery-item" src="~/assets/Uploads/Sliders/@Model.Image" style="height:100px; width:100px" /></a>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <label>Slider Resim Yükleyin <span>(jpg, png) - Boyut :  689x802 px</span> <b style="color:#ff0000">*</b> </label><br />
+                                    <input type="file" class="fileinput btn-danger" accept="image/jpeg, image/png," name="frontimage" id="frontimage" data-filename-placement="inside" title="Lütfen Resim Yükleyin">
+                                </div>
+                                <br />
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <br /> <br />
+            <div class="panel-footer">
+                <button type="submit" class="btn btn-success pull-right">Kaydet</button>
+            </div>
+        </div>
+    </form>
+
+    <!-- END PAGE CONTENT WRAPPER -->
+}

@@ -1,0 +1,98 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+<section>
+    <div id="lgx-reservation" class="lgx-reservation" style="background-image: url('/Uploads/reservation-top.png')">
+        <div class="lgx-inner" style="background-image: url('/Uploads/reservation-bottom.png')">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="lgx-heading">
+                            <h2 class="heading-title">Rezervasyon Oluşturun</h2>
+                            <h4 class="heading-subtitle">Some Trendy And Popular Courses Offerd</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-md-offset-1 col-md-10">
+                        <div class="lgx-reservation-area">
+                            <div class="open-close-time">
+                                <p>Pazartesi- Cuma: <span>08:00 - 24:00</span></p>
+                                <p>Cumartesi - Pazar: <span>10:00 - 23:00</span></p>
+                            </div>
+                               
+
+                            <form id="reservationbooking" method="Post" action="~/Reservation/Index">
+                                <div class="form-group">
+
+                                    <input class="form-control" name="name" id="foodiebooking_name" placeholder="İsminizi Giriniz" required aria-required="true" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" name="email" id="foodiebooking_email" placeholder="Email Adresinizi Giriniz" required aria-required="true" type="email">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" name="phone" id="foodiebooking_phone" placeholder="Telefon Numaranızı Giriniz" required aria-required="true" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" name="person" id="foodiebooking_person" required aria-required="true">
+                                        <option value="">Konuk Sayısı</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="8">9</option>
+                                        <option value="10">10</option>
+                                        <option value="more">10'dan Fazla</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group date" id="datetimepicker">
+                                        <input name="date" id="reservationbooking_date" class="form-control" required placeholder="Rezervasyon Tarihi"  aria-required="true" type="text">
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" name="time" id="foodiebooking_time" required aria-required="true">
+                                        <option value="0">Zaman</option>
+                                        <option value="1">Kahvaltı</option>
+                                        <option value="2">Öğle Yemeği</option>
+                                        <option value="3">Akşam Yemeği</option>
+                                    </select>
+                                </div>
+                                <div class="lgx-form-group">
+                                    <button class="btn lgx-btn" type="submit"><span>Onayla</span></button>
+                                </div>
+                                <div class="lgx-form-group">
+                                    @if (ViewBag.Danger != null)
+                                    {
+                                        <span style="color:#ff0000"> Lütfen Zorunlu Alanları Doldurunuz.</span>
+                                    }
+                                    else if (ViewBag.Success != null)
+                                    {
+                                        <span style="color:#58a14d"> Rezervasyon Talebiniz Tarafımıza iletilmiştir.</span>
+
+                                    }
+                                    </div>
+                            </form>
+                            
+                        </div>
+                    </div>
+                </div>
+                <!--//.ROW-->
+            </div>
+            <!-- //.CONTAINER -->
+        </div>
+        <!-- //.INNER -->
+    </div>
+</section>
+

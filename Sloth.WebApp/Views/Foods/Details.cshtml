@@ -1,0 +1,110 @@
+﻿@model Sloth.Entities.Concrete.Food
+
+@{
+    Sloth.Entities.SlothContext db = new Sloth.Entities.SlothContext();
+
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+
+
+<section>
+    <div class="lgx-banner lgx-banner-inner" style="background-image: url('/Uploads/banner61.jpg')">
+        <div class="lgx-page-inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="lgx-heading-area">
+                            <div class="lgx-heading lgx-heading-white">
+                                <h2 class="heading-title">@Model.Title</h2>
+                            </div>
+                            <ul class="breadcrumb">
+                                <li><a href="index.html"><i class="fa fa-home" aria-hidden="true"></i>Ana Sayfa</a></li>
+                                <li class="active">Yemekler</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div><!--//.ROW-->
+            </div><!-- //.CONTAINER -->
+        </div><!-- //.INNER -->
+    </div>
+</section> <!--//.Banner Inner-->
+
+<main>
+    <div class="lgx-page-wrapper">
+        <div class="container">
+            <div class="lgx-col">
+                @foreach (var item in db.Foods.Where(x => x.Id == Model.Id))
+                {
+                
+                    <div class="lgx-single-speacial lgx-card-single">
+                        <figure>
+                            <a><img src="~/Uploads/@item.Image.ToString()" alt="Offers" /></a>
+                            <figcaption>
+                                <div class="speacial-price">
+                                    <span>@item.Price</span> ₺
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <div class="speacial-info">
+                            <h3 class="title"><a>@item.Title.ToString()</a></h3>
+                        </div>
+                    </div>
+
+                }
+
+            </div>
+        </div><!-- //.CONTAINER -->
+        <div class="lgx-page-wrapper lgx-page-wrapper-none">
+            <!--ABOUT-->
+            <section>
+                <div id="lgx-about" class="lgx-about" style="background-image: url('/Uploads/about-bg.jpg')">
+                    <!--lgx-about2 lgx-about-video-->
+                    <div class="lgx-inner">
+                        <div class="container">
+                            <div class="row">
+                                @{
+                                    var foodTitle = db.Foods.Where(x => x.Id == Model.Id).Single().Title.ToString();
+                                    var foodDesc= db.Foods.Where(x => x.Id == Model.Id).Single().Description.ToString();
+                                    var foodText = db.Foods.Where(x => x.Id == Model.Id).Single().Text.ToString();
+                                }
+                                <div class="col-xs-12 col-md-7">
+                                    <div class="lgx-about-area lgx-about-area-video">
+                                        <div class="lgx-heading">
+                                            <h2 class="heading-title">@Html.Raw(foodTitle)</h2>
+                                        </div>
+                                        <div class="lgx-about-content">
+                                            <blockquote class="about">
+                                                @Html.Raw(foodDesc)
+                                            </blockquote>
+                                            <p class="text">
+                                                @Html.Raw(foodText)
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--//.ROW-->
+                        </div>
+                        <!-- //.CONTAINER -->
+                    </div>
+                    <!-- //.INNER -->
+                </div>
+            </section>
+            <!--ABOUT END-->
+
+
+        </div>
+
+    </div>
+
+        
+
+</main>
+
+
+
+
+

@@ -1,0 +1,76 @@
+﻿@model Sloth.Entities.Concrete.CompanyInfo
+@{
+    Sloth.Entities.SlothContext db = new Sloth.Entities.SlothContext();
+
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+<section>
+    <div class="lgx-banner lgx-banner-inner" style="background-image: url('/Uploads/banner61.jpg')">
+        <div class="lgx-page-inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="lgx-heading-area">
+                            <div class="lgx-heading lgx-heading-white">
+                                <h2 class="heading-title">@db.CompanyInfos.Single().CompanyName</h2>
+                            </div>
+                            <ul class="breadcrumb">
+                                <li><a href="index.html"><i class="fa fa-home" aria-hidden="true"></i>Ana Sayfa</a></li>
+                                <li class="active">Hakkımızda</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div><!--//.ROW-->
+            </div><!-- //.CONTAINER -->
+        </div><!-- //.INNER -->
+    </div>
+</section> <!--//.Banner Inner-->
+
+
+
+<main>
+    <div class="lgx-page-wrapper lgx-page-wrapper-none">
+        <!--ABOUT-->
+        <section>
+            <div id="lgx-about" class="lgx-about" style="background-image: url('/Uploads/about-bg.jpg')">
+                <!--lgx-about2 lgx-about-video-->
+                <div class="lgx-inner">
+                    <div class="container">
+                        <div class="row">
+                            @{
+                                var hakkimizdaTitle7 = db.Corparates.Where(x => x.Id == 7).Single().Title.ToString();
+                                var hakkimizdaDesc7 = db.Corparates.Where(x => x.Id == 7).Single().TextTitle.ToString();
+                                var hakkimizdaText7 = db.Corparates.Where(x => x.Id == 7).Single().Text.ToString();
+                            }
+                            <div class="col-xs-12 col-md-7">
+                                <div class="lgx-about-area lgx-about-area-video">
+                                    <div class="lgx-heading">
+                                        <h2 class="heading-title">@Html.Raw(hakkimizdaTitle7)</h2>
+                                    </div>
+                                    <div class="lgx-about-content">
+                                        <blockquote class="about">
+                                            @Html.Raw(hakkimizdaDesc7)
+                                        </blockquote>
+                                        <p class="text">
+                                            @Html.Raw(hakkimizdaText7)
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--//.ROW-->
+                    </div>
+                    <!-- //.CONTAINER -->
+                </div>
+                <!-- //.INNER -->
+            </div>
+        </section>
+        <!--ABOUT END-->
+           
+     
+    </div>
+</main>
+

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Sloth.Entities.Concrete.Contact>
+@{
+    Sloth.Entities.SlothContext db = new Sloth.Entities.SlothContext();
+
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayout.cshtml";
+}
+
+
+<div class="page-title">
+    <h2><span class="fa fa-arrow-circle-o-left"></span> Gelen Mesajlar</h2>
+</div>
+
+<!-- START DEFAULT TABLE EXPORT -->
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title"><strong>İletişim Formu</strong> Yönetimi</h3>
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive">
+
+            <table class="table datatable">
+                <thead>
+                    <tr>
+                        <th class="text-center" width="20">#</th>
+                        <th width="120">ADI SOYADI</th>
+                        <th width="120">EMAİL</th>
+                        <th width="120">TELEFON</th>
+                        <th class="text-center" width="120">İŞLEMLER</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model.OrderByDescending(o => o.Id))
+                    {
+                        <tr id="trow_1">
+                            <td class="text-center">@item.Id</td>
+                            <td class="text-center">@item.FullName</td>
+                            <td class="text-center">@item.Email</td>
+                            <td class="text-center">@item.Telephone</td>              
+                            <td class="text-center">
+                                <button class="btn btn-primary btn-rounded btn-condensed btn-sm" data-toggle="tooltip" data-placement="top" title="Görüntüle" onclick="location.href='@Url.Action("Details", "Contacts", new {id = item.Id })'"><span class="fa fa-eye"></span></button>
+                            </td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

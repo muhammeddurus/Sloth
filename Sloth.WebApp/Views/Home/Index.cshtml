@@ -1,0 +1,232 @@
+﻿@{
+    Sloth.Entities.SlothContext db = new Sloth.Entities.SlothContext();
+
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<section class="section-gap">
+    <div class="lgx-banner" style="background-image: url('/Uploads/banner.jpg')">
+        <div class="lgx-banner-style">
+            <div class="lgx-inner lgx-inner-fixed">
+                <div class="container">
+                    <div class="row">
+                        @{
+                            var hakkimizdaTitle6 = db.Corparates.Where(x => x.Id == 6).Single().Title.ToString();
+                            var hakkimizdaDesc6 = db.Corparates.Where(x => x.Id == 6).Single().TextTitle.ToString();
+                            var hakkimizdaText6 = db.Corparates.Where(x => x.Id == 6).Single().Text.ToString();
+                        }
+                        <div class="col-xs-12">
+                            <div class="lgx-banner-info">
+                                <!--lgx-banner-info-center lgx-banner-info-black lgx-banner-info-big lgx-banner-info-bg-->
+                                <h3 class="subtitle"></h3>
+                                <h3 class="subtitle"><span>@Html.Raw(hakkimizdaTitle6)</span><span class="typed-cursor">|</span></h3>
+                                <h2 class="title">@Html.Raw(hakkimizdaDesc6)</h2>
+                                <p class="text">
+                                    @Html.Raw(hakkimizdaText6)
+                                </p>
+                                <div class="btn-area">
+                                    <a class="lgx-scroll btn lgx-btn" href="~/Reservation"><span>Rezervasyon Yap</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--//.ROW-->
+                </div>
+                <!-- //.CONTAINER -->
+            </div>
+            <!-- //.INNER -->
+        </div>
+    </div>
+</section>
+<section class="section-gap">
+    <div id="lgx-about" class="lgx-about" style="background-image: url('/Uploads/about-bg.jpg');">
+        <!--lgx-about-bottom-->
+        @{
+            var hakkimizdaTitle = db.Corparates.Where(x => x.Id == 1).Single().Title.ToString();
+            var hakkimizdaDesc = db.Corparates.Where(x => x.Id == 1).Single().TextTitle.ToString();
+            var hakkimizdaText = db.Corparates.Where(x => x.Id == 1).Single().Text.ToString();
+        }
+        <div class="lgx-inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-md-7">
+                        <div class="lgx-about-area">
+                            <div class="lgx-heading">
+                                <h2 class="heading-title">@Html.Raw(hakkimizdaTitle)</h2>
+                            </div>
+                            <div class="lgx-about-content">
+                                <blockquote class="about">
+                                    @Html.Raw(hakkimizdaDesc)
+                                </blockquote>
+                                <p class="text">
+                                   @Html.Raw(hakkimizdaText)
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--//.ROW-->
+            </div>
+            <!-- //.CONTAINER -->
+        </div>
+        <!-- //.INNER -->
+    </div>
+</section>
+<!--ABOUT END-->
+<!--OFFER-->
+<section class="section-gap lgx-offer-section">
+    <div id="lgx-offer" class="lgx-offer lgx-offer-center">
+        <div class="lgx-inner">
+            <div id="lgx-owloffer" class="owl-carousel lgx-owloffer">
+                @foreach (var item in db.Sliders)
+                {
+                    <div class="item">
+                        <div class="lgx-single-offer">
+                            <figure>
+                                <a href="~/Menu"><img src="~/Uploads/@item.Image" alt="Offers" /></a>
+                            </figure>
+                            <div class="offer-info">
+                                <div class="offer-info-inner">
+                                    <h2 class="title"><a href="~/Menu"><span>@item.Title</span> 715 x 466 Resim Gelicek</a></h2>
+                                    <ul class="list-unstyled offer-list">
+                                        <li><i class="fa fa-check" aria-hidden="true"></i> @item.SmallTitle</li>
+                                        <li><i class="fa fa-check" aria-hidden="true"></i> @item.Description</li>
+                                        <li><i class="fa fa-check" aria-hidden="true"></i> Kampanyamızdan tek sefer yararlanabilirsiniz.</li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <!-- //.INNER -->
+    </div>
+</section>
+
+<!--ABOUT TOP-->
+<section>
+    <div id="lgx-about-top" class="lgx-about-top">
+        <div class="lgx-inner">
+            <div class="container">
+                <div class="row">
+                    @{
+                        var hakkimizdaTitle2 = db.Corparates.Where(x => x.Id == 2).Single().Title.ToString();
+                        var hakkimizdaDesc2 = db.Corparates.Where(x => x.Id == 2).Single().TextTitle.ToString();
+                        var hakkimizdaText2 = db.Corparates.Where(x => x.Id == 2).Single().Text.ToString();
+
+                        var hakkimizdaTitle3 = db.Corparates.Where(x => x.Id == 3).Single().Title.ToString();
+                        var hakkimizdaDesc3 = db.Corparates.Where(x => x.Id == 3).Single().TextTitle.ToString();
+                        var hakkimizdaText3 = db.Corparates.Where(x => x.Id == 3).Single().Text.ToString();
+
+                        var hakkimizdaTitle4 = db.Corparates.Where(x => x.Id == 4).Single().Title.ToString();
+                        var hakkimizdaDesc4 = db.Corparates.Where(x => x.Id == 4).Single().TextTitle.ToString();
+                        var hakkimizdaText4 = db.Corparates.Where(x => x.Id == 4).Single().Text.ToString();
+
+                        var hakkimizdaTitle8 = db.Corparates.Where(x => x.Id == 8).Single().Title.ToString();
+                        var hakkimizdaDesc8 = db.Corparates.Where(x => x.Id == 8).Single().TextTitle.ToString();
+                        var hakkimizdaText8 = db.Corparates.Where(x => x.Id == 8).Single().Text.ToString();
+
+                    }
+                    <div class="col-sm-4">
+                        <div class="about-top-single">
+                            <a><img src=~/assets/img/about-icon2.png alt="about-icon"></a>
+                            <h3 class="title"><a>@Html.Raw(hakkimizdaTitle2.ToUpper())</a></h3>
+                            <p>@Html.Raw(hakkimizdaText2)</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="about-top-single">
+                            <a><img src=~/assets/img/about-icon4.png alt="about-icon"></a>
+                            <h3 class="title"><a>@Html.Raw(hakkimizdaTitle3.ToUpper())</a></h3>
+                            <p>@Html.Raw(hakkimizdaText3)</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="about-top-single">
+                            <a><img src=~/assets/img/about-icon6.png alt="about-icon"></a>
+                            <h3 class="title"><a>@Html.Raw(hakkimizdaTitle4.ToUpper())</a></h3>
+                            <p>@Html.Raw(hakkimizdaText4)</p>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- //.CONTAINER -->
+        </div><!-- //.INNER -->
+    </div>
+</section>
+<!--ABOUT TOP END-->
+<!--MENU ITEMS-->
+<section>
+    <div id="lgx-menu" class="lgx-menu" style="background-image: url('/Uploads/about-bg.jpg')">
+        <!--lgx-menu-white-->
+        <div class="lgx-inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="lgx-heading lgx-heading-white">
+                            <h2 class="heading-title">@Html.Raw(hakkimizdaTitle8)</h2>
+                            <h4 class="heading-subtitle">@Html.Raw(hakkimizdaText8)</h4>
+                        </div>
+                    </div>
+                </div>
+                <!--//.ROW-->
+            </div>
+            <div class="container-fluids section-gap">
+                <!--section-gap-->
+                <div class="lgx-tab">
+                    <!--lgx-tab-another2-->
+
+
+                    <div class="lgx-filter-area">
+                        <!--lgx-filter-area-white-->
+                        <ul id="lgx-filter" class="lgx-filter list-inline">
+                            @foreach (var item in db.Categories.Where(x => x.ParentId ==null))
+                            {
+                                <li><a class="lgx-filter-item" href="javascript:void(0)" data-filter="*">@item.Title.ToString()<span>@item.Description.ToString()</span></a></li>
+                            }
+
+                        </ul>
+                    </div>
+
+
+
+                    <div id="lgx-grid-wrapper" class="lgx-grid-wrapper">
+                        <!--**************************************HATA VAR************************************-->
+                        @foreach (var item in db.Foods)
+                        {
+
+                            <div class="lgx-grid-item @item.Category.Title">
+                                <!-- lgx-grid-item-col1 lgx-grid-item-col2 lgx-grid-item-col3 lgx-grid-item-col4-->
+                                <div class="lgx-single-menu">
+                                    <a href="~/Foods/Details/@item.Id">
+                                        <figure>
+                                            <img src="~/Uploads/@item.Image">
+                                            <figcaption>
+
+                                            </figcaption>
+                                        </figure>
+                                        <div class="menu-info">
+                                            <h3 class="title">@item.Title.ToString()</h3>
+                                            <h5 class="subtitle">@item.Description.ToString()</h5>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div><!--//ITEM-->
+                        }
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--MENU ITEMS END-->
+<!--RESERVATION-->
+<!--RESERVATION END-->
+<!--VIDEO-->

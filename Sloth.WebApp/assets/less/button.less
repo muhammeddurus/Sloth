@@ -1,0 +1,211 @@
+button.lgx-btn,
+.lgx-btn-contact,
+.lgx-btn {
+  font-family: @lgx-heading-font;
+  color: @brand-color;
+  border: 2px solid @brand-color;
+  border-radius: 0;
+  .bg-rgba(@white-color, 0);
+  padding: 1.6rem 5rem;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: .1rem;
+  transition: transform 300ms ;
+  span {
+    position: relative;
+    z-index: 100;
+  }
+
+  &:before, &:after {
+    content:'';
+    position: absolute;
+    display: block;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  &:before {
+    transform: translate3d(-100%, 0, 0);
+    .bg-rgba(@brand-color, 1);
+    transition: transform 300ms ;
+  }
+
+  &:after {
+    .bg-rgba(@white-color, .1);
+    transform: translate3d(100%, 0, 0);
+    transition: transform 300ms cubic-bezier(.16,.73,.58,.62);
+  }
+
+  &:hover {
+    color: @white-color;
+    span {
+      color: inherit;
+    }
+    &:before {
+      transform: translate3d(0,0,0);
+    }
+
+    &:after {
+      transform: translate3d(0,0,0);
+    }
+  }
+}
+
+.lgx-btn-simple {
+  border: 1px solid @border-color;
+  border-radius: 0;
+  .bg-rgba(@white-color, .4);
+  padding: .8rem 2.6rem;
+  color: @black-color;
+  &:before {
+    transform: translate3d(-100%, 0, 0);
+    .bg-rgba(@border-color, .4);
+    transition: transform 300ms ;
+    //border: 2px solid transparent;
+  }
+
+  &:after {
+    .bg-rgba(@white-color, .3);
+    transform: translate3d(100%, 0, 0);
+    transition: transform 300ms cubic-bezier(.16,.73,.58,.62);
+    //border: 2px solid transparent;
+  }
+
+  &:hover {
+    color: @brand-color;
+  }
+}
+
+.lgx-btn-simple-black {
+  border: 1px solid @brand-color;
+  border-radius: 0;
+  .bg-rgba(@white-color, 0);
+  padding: .8rem 2.6rem;
+  color: @brand-color;
+  &:before {
+    transform: translate3d(-100%, 0, 0);
+    .bg-rgba(@brand-color, 1);
+    transition: transform 300ms ;
+    border: 2px solid @brand-color;
+  }
+
+  &:after {
+    .bg-rgba(@white-color, .1);
+    transform: translate3d(100%, 0, 0);
+    transition: transform 300ms cubic-bezier(.16,.73,.58,.62);
+    //border: 2px solid transparent;
+  }
+
+  &:hover {
+    color: @black-color;
+  }
+}
+
+
+.lgx-btn-simple-brand {
+  border: 1px solid @brand-color;
+  border-radius: 0;
+  .bg-rgba(@white-color, 0);
+  padding: .8rem 2.6rem;
+  color: @brand-color;
+  &:before {
+    transform: translate3d(-100%, 0, 0);
+    .bg-rgba(@brand-color, 1);
+    transition: transform 300ms ;
+  }
+
+  &:after {
+    .bg-rgba(@white-color, .1);
+    transform: translate3d(100%, 0, 0);
+    transition: transform 300ms cubic-bezier(.16,.73,.58,.62);
+  }
+  &:hover {
+    color: @black-color;
+  }
+}
+
+
+.lgx-navbar .lgx-nav li {
+  a.lgx-btn {
+    margin-top: 19px;
+    font-family: @lgx-heading-font;
+    color: @brand-color;
+    border: 2px solid @brand-color;
+    border-radius: 0;
+    .bg-rgba(@white-color, 0);
+    padding: .8rem 2.6rem !important;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    font-weight: 700;
+    transition: transform 300ms ;
+    span {
+      position: relative;
+      z-index: 100;
+    }
+
+    &:before, &:after {
+      content:'';
+      position: absolute;
+      display: block;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+    }
+
+    &:before {
+      transform: translate3d(-100%, 0, 0);
+      .bg-rgba(@brand-color, 1);
+      transition: transform 300ms ;
+    }
+
+    &:after {
+      .bg-rgba(@white-color, .1);
+      transform: translate3d(100%, 0, 0);
+      transition: transform 300ms cubic-bezier(.16,.73,.58,.62);
+    }
+
+    &:hover {
+      color: @black-color !important;
+      &:before {
+        transform: translate3d(0,0,0);
+      }
+
+      &:after {
+        transform: translate3d(0,0,0);
+      }
+    }
+  }
+}
+
+
+
+/* ---------------------------------------------------------------------
+    Extra small devices (phones, less UP TO 767px)
+ ----------------------------------------------------------------------*/
+@media (max-width : @screen-xs-max) {
+  /************** 767 GLOBAl USE***********/
+  .lgx-btn {
+    font-size: 12px;
+    padding: .6rem 2rem;
+    letter-spacing: 0rem;
+  }
+  /************** 767 GLOBAl USE END***********/
+
+}/*767 END*/
+
+
+
+
+
+
+
+
+

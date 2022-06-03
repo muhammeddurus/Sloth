@@ -1,0 +1,96 @@
+﻿@model Sloth.Entities.Concrete.Corparate
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayout.cshtml";
+}
+
+@using (Html.BeginForm("Edit", "Corporates", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <!-- PAGE CONTENT WRAPPER -->
+    <div class="page-title">
+        <h2><span class="fa fa-arrow-circle-o-left"></span> Kurumsal Sayfa Düzenle</h2>
+    </div>
+
+    <form class="form-horizontal">
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><strong>Kurumsal Sayfa</strong> Düzenle</h3>
+                <ul class="panel-controls">
+                    <li><a href="~/Admin/Corporates"><span style="color:#ff6a00" class="fa fa-arrow-left"></span></a></li>
+                </ul>
+            </div>
+            <div class="panel-body">
+                <p>
+                    Bir "Sayfa" düzenlemek için aşağıdaki bilgileri eksiksiz doldurunuz. <br /> <b style="color:#ff0000">*</b> ile işaretli alanların doldurulması zorunludur.
+                </p>
+            </div>
+
+            <div class="panel-body">
+
+                <div class="row">
+
+                    <div class="col-md-12">
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label"> Ana Başlık <b style="color:#ff0000">*</b></label>
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @autocomplete = "off", @placeholder = "Başlık", @required = "required", @class = "form-control", } })
+                                </div>
+                                <br />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label"> Kurumsal Sayfa Başlık <b style="color:#ff0000">*</b></label>
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                    @Html.EditorFor(model => model.TextTitle, new { htmlAttributes = new { @autocomplete = "off", @placeholder = "Başlık", @required = "required", @class = "form-control", } })
+                                </div>
+                                <br />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Kurumsal Sayfa İçerik <b style="color:#ff0000">*</b></label>
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    @Html.TextArea("FirstText", null, new { @cols = "200", @rows = "5", @name = "FirstText", @class = "summernote", })
+                                </div>
+                                <br />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Kurumsal Sayfa İçerik Detay <b style="color:#ff0000">*</b></label>
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    @Html.TextArea("ContentText", null, new { @cols = "200", @rows = "5", @name = "ContentText", @class = "summernote", })
+                                </div>
+                                <br />
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+         <br /> <br />
+            <div class="panel-footer">
+                <button type="submit" class="btn btn-success pull-right">Kaydet</button>
+            </div>
+        </div>
+    </form>
+
+    <!-- END PAGE CONTENT WRAPPER -->
+}

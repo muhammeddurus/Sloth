@@ -1,0 +1,47 @@
+.lgx-about-top {
+  .bg-rgba(@white-color, 1);
+  .lgx-inner {
+
+  }
+}
+
+.lgx-about-top-area {
+  display: flex;
+}
+
+.about-top-single {
+  position: relative;
+  margin-bottom: 2.6rem;
+  .bg-rgba(@white-color, 1);
+  text-align: center;
+  color: @white-color;
+  padding: 2.6rem 8%;
+  .title {
+    font-family: @lgx-heading-font;
+    .font-size(20);
+    font-weight: 700;
+    color: @black-color;
+    margin: 1rem 0;
+    text-transform: uppercase;
+    a {
+      color: inherit;
+    }
+  }
+  p {
+    color: @black-color;
+    opacity: .8;
+  }
+
+  &:hover {
+    -webkit-box-shadow: 0 0px 35px rgba(0,0,0,.1);
+  -moz-box-shadow: 0 0px 35px rgba(0,0,0,.1);
+  box-shadow: 0 0px 35px rgba(0,0,0,.1);
+  .transition-duration(@duration: 0.3s);
+    .title {
+      color: @brand-color;
+    }
+    p {
+      color: rgba(33, 39, 57, 0.7);
+    }
+  }
+}

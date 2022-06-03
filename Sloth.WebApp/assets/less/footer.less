@@ -1,0 +1,363 @@
+
+.lgx-footer {
+  background: url('http://placehold.it/1920x800') bottom center no-repeat;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  color: @white-color;
+  text-align: center;
+  .lgx-inner {
+    .bg-rgba(@black-color, .9);
+  }
+}
+
+.lgx-getintouch-area {
+  background: url('http://placehold.it/1920x500') top center no-repeat fixed;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  .lgx-getintouch-inner {
+    .bg-rgba(@black-color, .7);
+    padding: 6.3rem 0 6.3rem;
+  }
+  .lgx-getintouch {
+    font-family: @lgx-heading-font;
+    .font-size(24);
+    text-align: left;
+    color: @white-color;
+    span {
+      font-family: @lgx-heading-font;
+      color: @brand-color;
+    }
+    .lgx-btn-contact {
+      float: right;
+      &:hover {
+        color: @white-color;
+        span {
+          color: @white-color;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+.lgx-subscriber-area {
+  text-align: left;
+  p {
+    margin-bottom: 1rem;
+  }
+  .lgx-subscriber-footer .subscribe-form {
+    background: transparent;
+  }
+  .form-control {
+    .bg-rgba(@white-color, .9);
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    height: 45px;
+    color: @brand-color;
+  }
+}
+
+.lgx-footer-middle {
+  padding: 10.2rem 0;
+}
+
+
+
+.lgx-footer-area {
+  display: flex;
+  overflow: hidden;
+  padding-bottom: 6.8rem;
+}
+
+.lgx-footer-single {
+  flex: 1;
+  text-align: left;
+  //margin-bottom: 6.3rem;
+  color: @footer-text;
+  .text {
+    margin-bottom: 1rem;
+  }
+  .lgx-btn {
+    padding: 1.3rem 5rem;
+  }
+  p {
+    color: inherit;
+  }
+  .logo {
+    margin-bottom: 4.2rem;
+    display: block;
+    img {
+      max-width: 200px;
+      opacity: .5;
+    }
+  }
+  address {
+    margin-bottom: 1.5rem;
+    line-height: 2.4rem;
+    i {
+      overflow: hidden;
+      color: @brand-color;
+      margin-right: 5px;
+      //float: left;
+      opacity: .4;
+    }
+  }
+  .lgx-address-info {
+    li {
+      line-height: 2.5rem;
+    }
+    i {
+      color: @brand-color;
+      margin-right: 1rem;
+      opacity: .4;
+    }
+    li {
+      &:hover {
+        color: inherit;
+      }
+    }
+  }
+  .title {
+    font-family: @lgx-heading-font;
+    .font-size(16);
+    text-transform: uppercase;
+    margin-bottom: 2.4rem;
+    color: @white-color;
+    font-weight: 700;
+    letter-spacing: .08rem;
+    opacity: .7;
+  }
+  ul {
+    li {
+      font-family: @lgx-heading-font;
+      .font-size(16);
+      color: @footer-text;
+      line-height: 3rem;
+      a {
+        font: inherit;
+        color: inherit;
+        .transition-duration(@duration: 0.3s);
+      }
+      &:hover {
+        color: @white-color;
+        a {
+          color: inherit;
+        }
+      }
+    }
+  }
+  .opening-time-single {
+    margin-bottom: 1rem;
+    font-family: @lgx-heading-font;
+    span {
+      font-family: @lgx-base-font;
+      display: block;
+      i {
+        color: @brand-color;
+        font-style: normal;
+        font-weight: 700;
+        opacity: .4;
+      }
+    }
+  }
+}
+
+
+
+.lgx-footer-bottom {
+  border-top: 1px solid #444;
+  padding-top: 2.4rem;
+  .lgx-copyright,
+  .lgx-social-footer {
+    float: left;
+  }
+  .lgx-copyright {
+    width: 60%;
+    text-align: left;
+  }
+
+
+
+  .lgx-copyright {
+    font-family: @lgx-heading-font;
+    color: @footer-text;
+    .font-size(20);
+    p {
+      font-family: inherit;
+      font-style: italic;
+      color: @footer-text;
+      opacity: .7;
+
+    }
+    ul {
+      margin-bottom: .5rem;
+      li {
+        a {
+          color: @white-color;
+          &:hover {
+            color: @brand-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+.lgx-social-footer {
+  width: 40%;
+  text-align: right;
+  font-size: 26px;
+  .social {
+    padding-left: 0px;
+  }
+  li {
+    color: @white-color;
+    list-style-type: none;
+    display: inline-block;
+    padding: 0 .2rem;
+    cursor: pointer;
+    transition: ease .3s;
+    opacity: .3;
+    a {
+      color: inherit;
+    }
+    &:hover {
+      color: @brand-color;
+      a {
+        color: inherit;
+      }
+    }
+  }
+  .social:hover > li {
+    color: @brand-color;
+    a {
+      color: inherit;
+    }
+    opacity: 0.3;
+  }
+
+  .social:hover > li:hover {
+    opacity: 1;
+  }
+}
+
+
+.lgx-social {
+  font-size: 26px;
+  .social {
+    padding-left: 0px;
+  }
+  li {
+    color: @black-color;
+    list-style-type: none;
+    display: inline-block;
+    padding: .2rem;
+    cursor: pointer;
+    transition: ease .3s;
+    opacity: .5;
+    a {
+      color: inherit;
+    }
+    &:hover {
+      color: @brand-color;
+      a {
+        color: inherit;
+      }
+    }
+  }
+  .social:hover > li {
+    opacity: 0.2;
+  }
+
+  .social:hover > li:hover {
+    opacity: 1;
+  }
+}
+
+
+.lgx-footer-white {
+  .lgx-inner {
+    .bg-rgba(@body-bg-deep, .93);
+  }
+  .lgx-footer-single .title {
+    color: @brand-color;
+    opacity: 1;
+  }
+  .lgx-footer-single {
+    color: @black-color;
+  }
+  .lgx-footer-bottom {
+    border-top: 1px solid @body-bg;
+  }
+  ul li {
+    color: @black-color;
+    opacity: 1;
+    a {
+      color: inherit;
+    }
+  }
+  .lgx-footer-bottom .lgx-social-footer {
+    color: @black-color;
+
+  }
+  .opening-time-single {
+    color: @black-color;
+    span {
+      i {
+        opacity: .7;
+      }
+    }
+  }
+  .lgx-footer-bottom .lgx-copyright p {
+    color: @black-color;
+  }
+  .lgx-footer-single ul li:hover a {
+    color: @brand-color;
+  }
+  .lgx-social-footer {
+    width: 40%;
+    text-align: right;
+    font-size: 26px;
+    .social {
+      padding-left: 0px;
+    }
+    li {
+      color: @black-color;
+      a {
+        color: inherit;
+      }
+      &:hover {
+        color: @brand-color;
+        a {
+          color: inherit;
+        }
+      }
+    }
+    .social:hover > li {
+      color: @brand-color;
+      a {
+        color: inherit;
+      }
+      opacity: 0.3;
+    }
+
+    .social:hover > li:hover {
+      opacity: 1;
+    }
+  }
+
+}
+
+

@@ -1,0 +1,85 @@
+﻿@model Sloth.Entities.Concrete.Contact
+@{
+    Sloth.Entities.SlothContext db = new Sloth.Entities.SlothContext();
+
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayout.cshtml";
+}
+
+<!-- PAGE CONTENT WRAPPER -->
+<div class="page-title">
+    <h2><span class="fa fa-arrow-circle-o-left"></span> İletişim Formu</h2>
+</div>
+
+<form class="form-horizontal">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title"><strong>İletişim Formu</strong> Detay</h3>
+            <ul class="panel-controls">
+                <li><a href="~/admin/Contacts"><span style="color:#ff6a00" class="fa fa-arrow-left"></span></a></li>
+            </ul>
+        </div>
+        <div class="panel-body">
+            <p>
+                Gelen "İletişim Formu" detayları aşağıdaki bilgileri içerir.
+            </p>
+        </div>
+
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6">
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label"> Adı Soyadı </label>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="fa fa-user"></span></span>
+                                @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @style = "color:#2b2b2b", @readonly = "readonly", @class = "form-control", } })
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label"> Telefon Numarası </label>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="fa fa-phone"></span></span>
+                                @Html.EditorFor(model => model.Telephone, new { htmlAttributes = new { @style = "color:#2b2b2b", @readonly = "readonly", @class = "form-control", } })
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label"> Email Adresi </label>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="fa fa-envelope"></span></span>
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @style = "color:#2b2b2b", @readonly = "readonly", @class = "form-control", } })
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label"> Mesaj Açıklama </label>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                @Html.TextArea("Message", null, new { @style = "color:#2b2b2b;width:300px", @rows = "5", @readonly = "readonly", @class = "form-control", })
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>

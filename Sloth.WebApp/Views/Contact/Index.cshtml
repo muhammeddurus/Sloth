@@ -1,0 +1,129 @@
+﻿@model IEnumerable<Sloth.Entities.Concrete.Contact>
+
+@{
+
+    Sloth.Entities.SlothContext db = new Sloth.Entities.SlothContext();
+
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<section>
+    <div class="lgx-banner lgx-banner-inner" style="background-image: url('/Uploads/banner61.jpg')">
+        <div class="lgx-page-inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="lgx-heading-area">
+                            <div class="lgx-heading lgx-heading-white">
+                                <h2 class="heading-title">Bizimle İletişime Geçin</h2>
+                            </div>
+                            <ul class="breadcrumb">
+                                <li><a href="index.html"><i class="fa fa-home" aria-hidden="true"></i>Ana Sayfa</a></li>
+                                <li class="active">İLETİŞİM</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div><!--//.ROW-->
+            </div><!-- //.CONTAINER -->
+        </div><!-- //.INNER -->
+    </div>
+</section> <!--//.Banner Inner-->
+
+<main>
+    <div class="lgx-page-wrapper">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-sm-12 col-md-6">
+
+                    <form method="POST" class="lgx-contactform" action="php/form-handler.php">
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control lgxname" id="lgxname" placeholder="İsminizi girin" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control lgxemail" id="lgxemail" placeholder="Email adresinizi girin" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" name="phone" class="form-control lgxsubject" id="lgxsubject" placeholder="Telefon Numaranızı Girin" required>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea class="form-control lgxmessage" name="message" id="lgxmessage" rows="5" placeholder="Mesajınızı Yazın..." required></textarea>
+                        </div>
+                        <div class="lgx-form-group">
+                            <button class="btn lgx-btn" type="submit"><span>Mesaj Gönder</span></button>
+                        </div>
+                        <div class="lgx-form-group">
+                            @if (ViewBag.Danger != null)
+                            {
+                                <span style="color:#ff0000"> Lütfen Zorunlu Alanları Doldurunuz.</span>
+                            }
+                            else if (ViewBag.Success != null)
+                            {
+                                <span style="color:#58a14d"> Rezervasyon Talebiniz Tarafımıza iletilmiştir.</span>
+
+                            }
+                        </div>
+                    </form>
+
+
+
+
+                </div> <!--//.COL-->
+                <div class="col-sm-12 col-md-6">
+                    <div class="contact-info">
+                        <div class="lgx-box">
+                            <!--<span class="lgx-icon"><i class="fa fa-map-marker"></i></span>-->
+                            <div class="address">
+                                <h3 class="title">Adres</h3>
+                                <p>
+                                    @db.CompanyInfos.Single().Location.ToString()
+                                </p>
+                                <!--<p>SKYPE:jhon.doe</p>-->
+                            </div>
+                        </div>
+                        <div class="lgx-box">
+                            <!--<span class="lgx-icon"><i class="fa fa-headphones"></i></span>-->
+                            <div class="address">
+                                <h3 class="title">Contact Info</h3>
+                                <p>@db.CompanyInfos.Single().CompanyPhone.ToString()</p>
+                                <p>@db.CompanyInfos.Single().CompanyMobile.ToString()</p>
+
+                            </div>
+                        </div>
+                        <div class="lgx-box">
+                            <!--<span class="lgx-icon"><i class="fa fa-envelope"></i></span>-->
+                            <div class="address">
+                                <h3 class="title">Mail Bilgileri</h3>
+                                <p>@db.CompanyInfos.Single().CompanyEmail.ToString()</p>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- //.CONTAINER -->
+    </div>
+</main>
+
+<!--
+ <div id="lgx-form-modal" class="modal fade lgx-form-modal" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content lgx-modal-content">
+                                        <div class="modal-header lgx-modal-header">
+                                            <button type="button" class="close brand-color-hover" data-dismiss="modal" aria-label="Close">
+                                                <i class="fa fa-power-off"></i>
+                                            </button>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            <div class="alert lgx-form-msg" role="alert"></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div> <!-- //MODAL -->

@@ -1,0 +1,131 @@
+﻿@model Sloth.Entities.Concrete.Food
+@using Sloth.WebApp.Models;
+@using Sloth.Entities.Concrete;
+
+@{
+
+    Sloth.Entities.SlothContext db = new Sloth.Entities.SlothContext();
+
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+
+
+}
+
+<section>
+    <div class="lgx-banner lgx-banner-inner" style="background-image: url('/Uploads/banner61.jpg')">
+        <div class="lgx-page-inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="lgx-heading-area">
+                            <!--lgx-heading-area-fixedlogo-->
+                            <div class="lgx-heading lgx-heading-white">
+                                <h2 class="heading-title">Ürün Menümüz</h2>
+                            </div>
+                            <ul class="breadcrumb">
+                                <li><a href="index.html"><i class="fa fa-home" aria-hidden="true"></i>Ana Sayfa</a></li>
+                                <li class="active">Ürün Menümüz</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div><!--//.ROW-->
+            </div><!-- //.CONTAINER -->
+        </div><!-- //.INNER -->
+    </div>
+</section> <!--//.Banner Inner-->
+
+<main>
+    <div class="lgx-page-wrapper">
+        <div class="container">
+            <div class="lgx-menu-card-area">
+
+                <div class="lgx-menu-card">
+                    
+                        <div id="sidebar" class="lgx-menu-card-nav sidebar">
+                            <div class="theiaStickySidebar">
+                                <ul class="list-unstyled">
+                                    @foreach (var item in db.Categories.Where(x => x.ParentId == null))
+                                    {
+                                        <li><a class="lgx-scroll" href="#@item.Title">@item.Title.ToUpper()</a></li>
+                                    }
+                                    </ul>
+                            </div>
+                        </div> <!--//.menu-card-nav-->
+                        <div class="lgx-menu-card-Items content">
+                            <div id="lgx-breakfast" class="lgx-item-cat theiaStickySidebar">
+                                @foreach (var item in db.Foods.Where(x => x.CategoryId == x.Category.Id))
+                                {
+
+
+                                <div id="@item.Category.Title" class="cat-main breakfast">
+                                    <figure class="cat-maintitle-area">
+                                        <img src="~/Uploads/@item.Category.Image" alt="Items" />
+                                        <figcaption>
+                                            <h2 class="cat-maintitle">@item.Category.Title</h2>
+                                        </figcaption>
+                                    </figure>
+                                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                        <div class="panel panel-default lgx-panel">
+                                            <div class="panel-heading" role="tab" id="headingOne">
+                                                <div class="panel-title">
+                                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                        <h3 class="cat-title">@item.Category.ParentId.ToString()</h3>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                                <div class="panel-body">
+
+
+                                                    <div class="lgx-item-card">
+                                                        <a href="#">
+                                                            <figure>
+                                                                <img src="~/Uploads/@item.Image" alt="course">
+                                                                <figcaption>
+
+                                                                </figcaption>
+                                                            </figure>
+                                                            <div class="menu-info">
+                                                                <div class="info-left">
+                                                                    <h3 class="title">@item.Title</h3>
+                                                                    <p class="text">@item.Description</p>
+                                                                </div>
+                                                                <div class="menu-price">
+                                                                    <span>₺</span>@item.Price
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div> <!--//.item-card-->
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                                }
+                            </div>
+                        </div>
+                    
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <!--//.menu-card-Items-->
+
+
+
+
+</main>

@@ -1,0 +1,183 @@
+.lgx-about {
+  background: url('http://placehold.it/1920x655') top center no-repeat;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  .lgx-inner {
+    padding: 15rem 0;
+  }
+}
+
+.lgx-about-area {
+  .lgx-heading {
+    margin-bottom: 2.6rem;
+  }
+}
+
+.lgx-about-content {
+  text-align: center;
+  .text {
+    margin-bottom: 2rem;
+  }
+  .lgx-btn {
+
+  }
+}
+
+
+
+.lgx-about-booking {
+  .lgx-inner {
+    padding-top: 32rem;
+  }
+}
+
+
+
+.lgx-about2 {
+  background: url('http://placehold.it/1920x655') top center no-repeat;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}
+
+.lgx-about-video,
+.lgx-about-video2 {
+  background: url('http://placehold.it/1920x655') top center no-repeat;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  .lgx-inner {
+    .bg-rgba(@white-color, .92);
+  }
+}
+
+.lgx-about-video2 {
+  .lgx-inner {
+    padding-top: 0;
+  }
+}
+
+.lgx-about-video-area {
+  .about-video-singletext,
+  .about-video-singlevideo {
+    float: left;
+  }
+  .about-video-singletext {
+    width: 40%;
+    .bg-rgba(@white-color, 1);
+    padding: 6.8rem 4.2rem;
+    .lgx-heading {
+      text-align: left;
+      margin-bottom: 2.6rem;
+    }
+    .lgx-about-content {
+      text-align: left;
+    }
+  }
+  .about-video-singlevideo {
+    width: 60%;
+  }
+}
+
+
+.lgx-about-bottom {
+  background: @white-color;
+  .lgx-inner {
+    padding-bottom: 0;
+    padding-top: 11rem;
+  }
+  .lgx-about-area {
+    margin-bottom: 2.6rem;
+  }
+}
+
+//VIDEO
+.lgx-video-area-bg {
+  max-width: 800px;
+  margin: 0 auto;
+  figure {
+    position: relative;
+    //border-radius: 10px;
+    img {
+      //border-radius: 10px;
+    }
+    figcaption {
+      .bg-rgba(@black-color, 0.4);
+      //border-radius: 10px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      .video-icon {
+        display: table;
+        height: 100%;
+        width: 100%;
+        .lgx-vertical {
+          display: table-cell;
+          text-align: center;
+          vertical-align: middle;
+        }
+        .icon {
+          position: relative;
+          z-index: 2;
+          .transition-duration(@duration: 0.3s);
+          &:after {
+            content: '';
+            position: absolute;
+            width: 190px;
+            height: 190px;
+            border-radius: 50%;
+            top: -20px;
+            left: -20px;
+            display: block;
+            .bg-rgba(@white-color, 0.5);
+            z-index: -1;
+            opacity: 0;
+            .transition-duration(@duration: 0.3s);
+          }
+          i {
+            display: inline-block;
+            background: @white-color;
+            color: @brand-color;
+            margin: 0px 45px;
+            border-radius: 50%;
+            height: 100px;
+            width: 100px;
+            text-align: center;
+            line-height: 100px;
+            font-size: 24px;
+            padding-left: 10px;
+            .transition-duration(@duration: 0.3s);
+          }
+          &:hover {
+            i {
+              background: @brand-color;
+              color: @white-color;
+              .transition-duration(@duration: 0.3s);
+              -webkit-box-shadow: 0 20px 35px rgba(0, 0, 0, 0.12);
+              -moz-box-shadow: 0 20px 35px rgba(0, 0, 0, 0.12);
+              box-shadow: 0 20px 35px rgba(0, 0, 0, 0.12);
+            }
+            &:before {
+              border: 5px solid rgba(255,255,255, 0);
+            }
+            &:after {
+              .bg-rgba(@white-color, 0);
+            }
+          }
+        }
+
+      }
+    }
+  }
+}
+.lgx-video-trans {
+  figure figcaption {
+    background: transparent;
+  }
+}
